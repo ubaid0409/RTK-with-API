@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function UploadPage() {
   const dispatch = useDispatch();
-  const { url, thumbUrl, loading, error } = useSelector((state) => state.upload);
+  const { url, loading, error } = useSelector((state) => state.upload);
   const [file, setFile] = useState(null);
 
   const handleUpload = async () => {
@@ -14,9 +14,6 @@ export default function UploadPage() {
       console.log("API Response:", res);
     }
   };
-
-  console.log("FULL URL =>", url);
-  console.log("THUMBNAIL URL =>", thumbUrl);
 
   return (
     <div className="p-4">
@@ -35,13 +32,6 @@ export default function UploadPage() {
 
       {loading && <p>Uploading...</p>}
       {error && <p className="text-red-500">{error}</p>}
-
-      {thumbUrl && (
-        <div className="mt-4">
-          <p>Thumbnail (fast preview):</p>
-          <img src={thumbUrl} alt="thumbnail" className="w-40 h-40 object-cover" />
-        </div>
-      )}
 
       {url && (
         <div className="mt-4">
