@@ -19,11 +19,11 @@ function convertDriveLink(driveUrl) {
 export const uploadImage = createAsyncThunk(
   "upload/image",
   async (file) => {
+    // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYxN2I0NGIyLTNlYzUtNDNkMC1hMzFjLWE5MDUxOTczYTM1ZSIsImVtYWlsIjoid2FpemFuc2FyaTAxQGdtYWlsLmNvbSIsImlhdCI6MTc1NTAxMzIzOX0.0KvffINCp0k0lCcSN-UsZ5j5QXv6KOMobxvF8bb8ZeE";
     const token = "your_api_token";
-
     const formData = new FormData();
     formData.append("file", file);
-
+    // const res = await fetch("https://conclavity-api.sochai.ai/api/v1/service/upload", {
     const res = await fetch("https://api.sochai.ai/api/upload-media", {
       method: "POST",
       headers: {
